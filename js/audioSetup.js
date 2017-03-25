@@ -20,7 +20,6 @@ $(document).ready(function(){
 	// });
 
 	var songNames = $.getJSON("audio/songNames.json", function(songName){
-		console.log(songName);
 		songName.forEach(function(name) {
 			$("#audioSelect").append("<option value="+name+">"+name+"</option>");
 		});
