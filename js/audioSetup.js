@@ -24,18 +24,19 @@ $(".changeSong").click(function(){
 	var song = $("#audioSelect").val();
 	var audio = document.getElementById("myAudio");
 	var source = document.getElementById("mp3source");
-	source.src = "/Visualizer/audio/"+song;
+	source.src = "../audio/"+song;
 	audio.load();
 	audio.play();
 });
 
 $("#play").click(function(){
+	var audio = document.getElementById("myAudio");
 	if (audio.paused) {
 		audio.play();
-		$(".playbutton").attr("src", "/Visualizer/css/pause-button.png");
+		$(".playbutton").attr("src", "css/pause-button.png");
 	} else {
 		audio.pause();
-		$(".playbutton").attr("src", "/Visualizer/css/play-button.png");
+		$(".playbutton").attr("src", "css/play-button.png");
 	}
 });
 
