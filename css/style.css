@@ -1,0 +1,150 @@
+body {
+	margin: 0px;
+	font-family: 'Inconsolata', monospace;
+	font-weight: normal;
+}
+
+.hidden {
+	display: none;
+}
+
+.noVis {
+	visibility: hidden;
+}
+
+.menu {
+	position: absolute;
+	height: 100vh;
+	width: 200px;
+	background-color: black;
+	opacity: 80%;
+	visibility: hidden;
+	z-index: 11;
+}
+
+
+.menuTitle {
+	color: white;
+	margin: 5px;
+}
+
+.playbutton {
+	height: 30px;
+}
+
+.changeSong {
+	margin-top: 10px;
+	background: black;
+	font-family: inherit;
+	color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+}
+
+.closeButton {
+	border-top: 1px solid white;
+	line-height: 30px;
+}
+
+#audioSelect {
+	margin-top: 10px;
+	background-color: black;
+	height: 30px;
+	width: 100%;
+	border: 1px solid white;
+	color: white;
+	font-family: inherit;
+}
+
+.links {
+	margin-top: 10px;
+}
+
+.links a {
+	margin: 5px;
+	display: block;
+	line-height: 30px;
+	height: 30px;
+	border-top: 1px solid white;
+	color: white;
+}
+
+.toggleMenu {
+	position: absolute;
+	width: 30px;
+	z-index: 2;
+}
+
+.settings {
+	width: 30px;
+	filter: invert(100%);
+}
+
+.toggleSettings{
+	left: 170px;
+}
+
+.pageTitle {
+	position: fixed;
+	color: white;
+	top: 40%;
+	width: 100%;
+	text-align: center;
+	font-weight: normal;
+}
+
+.homeTitle {
+	font-weight: normal;
+}
+
+.menuLeft {
+	position: fixed;
+	color: white;
+	top: 43%;
+	width: 6%;
+	height: 20px;
+	text-align: center;
+	margin-left: 10px;
+	z-index: 11;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+.menuLeft p {
+	margin: 1px;
+}
+
+
+.leftMenuOut {
+	transition: 3s;
+	-webkit-animation: menuLeftOpen 3s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.menuControls {
+	transition: 3s;
+	-webkit-animation: menuControlsVis 3s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes menuLeftOpen {
+	20% {
+		height: 0px;
+		top: 46%;
+		width: 6%;
+	}
+	100% {
+		height: 100%;
+		width: 15%;
+		top:0%;
+	}
+}
+
+@-webkit-keyframes menuControlsVis {
+	95% {
+		visibility: hidden;
+	}
+	100% {
+		visibility: visible;
+	}
+}

@@ -1,0 +1,53 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-1.11.2.min.js"></script>
+	<link href="../jquery-1.11.2.min.map">
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <header name="Access-Control-Allow-Origin" value="*" />
+</head>
+<body>
+<div id="visualiser"></div>
+
+<div class="menuLeft menuIn">
+	<p class="menuLabel menuToggle"> menu </p>
+	<div class="menu">
+	<h1 class="menuTitle">Menu</h1>
+	<div class="audioControls">
+		<audio id="myAudio">
+		    <source id="mp3source" src="../audio/BlueBoss.mp3" type="audio/mpeg">
+		</audio>
+		<div class="player">
+			<a class="button" id="play"><img class="playbutton" src="../css/pause-button.png"/></a>
+			<a class="button" id="mute" href=""></a>
+		</div>
+		<select id="audioSelect"></select>
+
+		<input type="submit" class="button changeSong" name="listAudio" value="Change Song" />
+
+		<div class="links">
+			<a class="particle" href="../pages/particle.html">Particle</a>
+			<a class="home" href="../index.html">Home</a>
+			<a class="cube" href="../pages/cube.html">Cube</a>
+		</div>
+
+		<div class="menuToggle">
+			<p class="closeButton">Close</p>
+		</div>
+	</div>
+</div>
+</div>
+
+<img id="eye" src="../eye.png" class="hidden">
+<img id="tripEye" src="../trippyCirc.png" class="hidden">
+<img id="spiral" src="../colorSpiral.png" class="hidden">
+<!-- <img id="face" src="face.png" class="hidden"> -->
+<script src="../js/three.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+<script src="http://connect.soundcloud.com/sdk.js"></script>
+<!-- <script src="js/particle.js"></script> -->
+<script src="../js/sunset.js"></script>
+<script src="../js/audioSetup.js"></script>
+</body>
+</html>

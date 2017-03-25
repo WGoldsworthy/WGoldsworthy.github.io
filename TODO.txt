@@ -1,0 +1,5 @@
+TODO.txt
+
+- Side menu with slide out / hover functionality
+- moving directional light that moves around the scene
+- Atom - rotating dechedron, with three other smaller rotating decahedrons circling the main one.
