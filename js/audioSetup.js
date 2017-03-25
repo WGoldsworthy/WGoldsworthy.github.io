@@ -5,18 +5,25 @@
 */
 
 $(document).ready(function(){
-	$.ajax({
-		type: "GET",
-		url: "php/audioSetup.php",
-		success: function(data){
-            data = JSON.parse(data);
+	// $.ajax({
+	// 	type: "GET",
+	// 	url: "php/audioSetup.php",
+	// 	success: function(data){
+ //            data = JSON.parse(data);
 
-			data.forEach(function(song){
-				length = song.length;
-				name = song.substring(9, length);
-				$("#audioSelect").append("<option value="+name+">"+name+"</option>");
-			});
-		}
+	// 		data.forEach(function(song){
+	// 			length = song.length;
+	// 			name = song.substring(9, length);
+	// 			$("#audioSelect").append("<option value="+name+">"+name+"</option>");
+	// 		});
+	// 	}
+	// });
+
+	var songNames = $.getJSON("audio/songNames.json", function(songName){
+		console.log(songName);
+		songName.forEach(function(name) {
+			$("#audioSelect").append("<option value="+name+">"+name+"</option>");
+		});
 	});
 });
 
