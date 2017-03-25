@@ -7,7 +7,7 @@
 $(document).ready(function(){
 	$.ajax({
 		type: "GET",
-		url: "/Visualizer/php/audioSetup.php",
+		url: "php/audioSetup.php",
 		success: function(data){
             data = JSON.parse(data);
 
