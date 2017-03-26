@@ -562,8 +562,8 @@ var Visualiser = function() {
     var spiral = document.getElementById('spiral');
     fgCtx.save();
     fgCtx.translate(fgCanvas.width/2, fgCanvas.height/2);
+    rotation -= val;
     fgCtx.rotate(rotation * to_radians);
-    rotation += -7
     fgCtx.drawImage(spiral, -(spiral.width),-(spiral.height), spiral.width*2, spiral.height*2);
     var imgData = fgCtx.getImageData(0,0,fgCanvas.width, fgCanvas.height);
 
