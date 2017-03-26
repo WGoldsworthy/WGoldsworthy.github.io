@@ -94,7 +94,6 @@ var AudioSource = function() {
 
     bassAvg = bassAvg/50;
 
-    console.log("Total: " + total + " , avg: " + bassAvg);
     if (total > bassAvg){
       self.bass = true;
     } else {
@@ -440,7 +439,6 @@ var Visualiser = function() {
     var size = audioSource.streamData.length;
     var data = Array.prototype.slice.call(audioSource.streamData);
     var third = size/3;
-    console.log(data instanceof Array);
     i=0;
     data.forEach( function(val){
       if (i < third) {
@@ -569,7 +567,6 @@ var Visualiser = function() {
     fgCtx.drawImage(spiral, -(spiral.width),-(spiral.height), spiral.width*2, spiral.height*2);
     var imgData = fgCtx.getImageData(0,0,fgCanvas.width, fgCanvas.height);
 
-    console.log(audioSource.bass);
 
     for (var i=0;i<imgData.data.length;i+=4)
     {
@@ -629,7 +626,6 @@ var Visualiser = function() {
   this.init = function(options) {
     audioSource = options.audioSource;
     var container = document.getElementById(options.containerId);
-    console.log(audioSource)
 
     fgCanvas = document.createElement('canvas');
     fgCanvas.setAttribute('style', 'position: absolute; z-index: 10');
