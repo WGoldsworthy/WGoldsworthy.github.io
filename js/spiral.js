@@ -639,6 +639,6 @@ var Visualiser = function() {
     this.resizeCanvas();
 
     // setInterval(drawBg, 100);
-    setInterval(drawFg, 20);
+    setInterval(drawFg, 1);
   };
 }
