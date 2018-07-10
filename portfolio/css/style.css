@@ -1,0 +1,493 @@
+body {
+	background-color: #fff;
+	font-family: 'Fira Sans', sans-serif;
+	margin: 0px;
+}
+
+/* --- Sidebar --- */
+
+.sidebar {
+	position: absolute;
+	height: 100%;
+	width: 200px;
+}
+
+.navigation {
+	position: relative;
+	height: 80px;
+	width: 200px;
+	top: calc(50% - 40px);
+}
+
+.navigation .section_one {
+	background-color: grey;
+	width: 0px;
+	height: 1px;
+}
+
+.navigation .section_two {
+	position: relative;
+	top: 20px;
+	background-color: grey;
+	width: 0px;
+	height: 1px;
+}
+
+.navigation .section_three {
+	position: relative;
+	top: 40px;
+	background-color: grey;
+	width: 0px;
+	height: 1px;
+}
+
+.navigation .section_four {
+	position: relative;
+	top: 60px;
+	background-color: grey;
+	width: 0px;
+	height: 1px;
+}
+
+.extend_nav {
+	animation: extend_nav_bar 0.6s ease-out;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes extend_nav_bar {
+	0% {width: 0px;}
+	100% {width: 100px;}
+}
+
+.unextend_nav {
+	animation: unextend_nav_bar 0.6s ease-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes unextend_nav_bar {
+	0% {width: 100px;}
+	100% {width: 0px;}
+}
+
+.point {
+	background-color: grey;
+	border-radius: 50%;
+	height: 5px;
+	width: 5px;
+	position: relative;
+	top: -2px;
+}
+
+.section_one .point {
+	left: 100px;
+}
+
+.section_two .point {
+	left: 100px;
+}
+
+.section_three .point {
+	left: 100px;
+}
+
+.section_four .point {
+	left: 100px;
+}
+
+/* --- End Sidebar --- */
+
+
+/* --- Main --- */
+
+.sunrise {
+	position: absolute;
+	height: 0%;
+	width: 40%;
+	background-image: url('../images/sunrisePNG.png');
+	background-repeat: no-repeat;
+	/*background-size: contain;*/
+	background-size: cover;
+	left: calc(200px + 30%);
+}
+
+.slideDown {
+	animation: slideDown 0.5s ease-out;
+	animation-delay: 0.8s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slideDown {
+	0% {height: 0%; width: 40%;}
+	100% {height: 100%; width: 40%;}
+}
+
+.slideUp {
+	animation: slideUp 0.5s ease-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slideUp {
+	0% {height: 100%;}
+	100% {height: 0%;}
+}
+
+.home .text {
+	position: absolute;
+	height: 100px;
+	width: 0%;
+	background-color: black;
+	color: white;
+	font-size: 6vw;
+	text-align: center;
+	left: calc(200px + 10% );
+	top: 20%;
+	overflow: hidden;
+	line-height: 103px
+}
+
+.text {
+	transition: 0.4s;
+}
+
+.text:hover {
+	transform: scale(1.03);
+	transition: 0.4s;
+}
+
+.surname {
+	transition: 0.2s;
+}
+
+.surname:hover {
+	transition: 0.4s;
+	transform: scale(1.03);
+}
+
+.home .surname {
+	position: absolute;
+	height: 80px;
+	width: 0%;
+	background-color: black;
+	color: white;
+	font-size: 4vw;
+	text-align: center;
+	left: calc(200px + 14%);
+	top: calc(20% + 105px);
+	overflow: hidden;
+	line-height: 82px;
+	letter-spacing: 4px;
+}
+
+.slideRightText {
+	animation: text_slide_in 0.5s ease-out;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes text_slide_in {
+	0% {width: 0%;}
+	100% {width: 35%;}
+}
+
+.slideLeftText {
+	animation: text_slide_out 0.5s ease-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes text_slide_out {
+	0% {width: 35%;}
+	100% {width: 0%;}
+}
+
+.slideRightSurname {
+	animation: surname_slide 0.5s ease-out;
+	animation-delay: 1.2s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes surname_slide {
+	0% {width: 0%;}
+	100% {width: 40%;}
+}
+
+.slideLeftSurname {
+	animation: surname_slide_out 0.8s ease-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes surname_slide_out {
+	0% {width: 40%;}
+	100% {width: 0%;}
+}
+
+.info {
+	font-family: 'Encode Sans Condensed', sans-serif;
+	letter-spacing: 2px;
+	position: absolute;
+	height: 30%;
+	width: 25%;
+	left: 210px;
+	color: grey;
+	top: 60%;
+	opacity: 1;
+	transition: 1s;
+}
+
+.hide {
+	opacity: 0;
+	transition: 1s;
+}
+
+.info .dev {
+	white-space: nowrap;
+	overflow: hidden;
+	margin: 20;
+	width: 0;
+	text-align: left;
+	animation: type 1s steps(35, end);
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+	transition: 0.3s;
+}
+
+.info .machine {
+	white-space: nowrap;
+	overflow: hidden;
+	margin: 20;
+	width: 0;
+	text-align: left;
+	animation: type 1s steps(29, end);
+	animation-delay: 3s;
+	animation-fill-mode: forwards;
+	transition: 0.3s;
+}
+
+.info .cyclist {
+	white-space: nowrap;
+	overflow: hidden;
+	margin: 20;
+	width: 0;
+	text-align: left;
+	animation: type 1s steps(23, end);
+	animation-delay: 4s;
+	animation-fill-mode: forwards;
+	transition: 0.3s;
+}
+
+.info p {
+	cursor: pointer;
+}
+
+.dev:hover {
+	color: #94a0b9;
+	transition: 0.3s;
+}
+
+.machine:hover {
+	color: #f0d0b6;
+	transition: 0.3s;
+}
+
+.cyclist:hover {
+	color: #f0b6b6;
+	transition: 0.3s;
+}
+
+@keyframes type {
+	0% {width: 0;}
+	100% {width: 100%;}
+}
+
+
+/* --- End Main ---*/
+
+/* --- Skills --- */
+
+@media only screen and (min-width: 1200px) {
+	.chart {
+		height: 460px;
+		width: 460px;
+		top: calc(50% - 230px);
+	}
+
+	.jsTag {
+		position: absolute;
+		top: 10px;
+		left: 151px;
+		text-align: center;
+		z-index: 3;
+		background-color: white;
+	}
+
+	.cssTag {
+		position: absolute;
+		top: 30px;
+		left: 196px;
+		text-align: center;
+		z-index: 3;
+		background-color: white;
+	}
+
+	.pythonTag {
+		position: absolute;
+		top: 50px;
+		left: 171px;
+		text-align: center;
+		z-index: 3;
+		background-color: white;
+	}
+
+	.javaTag {
+		position: absolute;
+		top: 70px;
+		left: 193px;
+		text-align: center;
+		z-index: 3;
+		background-color: white;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	.chart {
+		height: 680px;
+		width: 680px;
+		top: calc(50% - 340px);
+	}
+
+	.jsTag {
+		position: absolute;
+		top: 120px;
+		left: 261px;
+		text-align: center;
+		z-index: 3;
+		background-color: white;
+	}
+
+	.cssTag {
+		position: absolute;
+		top: 140px;
+		left: 306px;
+		text-align: center;
+		z-index: 3;
+		background-color: white;
+	}
+
+	.pythonTag {
+		position: absolute;
+		top: 160px;
+		left: 281px;
+		text-align: center;
+		z-index: 3;
+		background-color: white;
+	}
+
+	.javaTag {
+		position: absolute;
+		top: 180px;
+		left: 303px;
+		text-align: center;
+		z-index: 3;
+		background-color: white;
+	}
+
+}
+
+.chart {
+	position: absolute;
+	left: 200px;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+svg {
+	stroke-width: 5px;
+	fill: white;
+	vector-effect: "non-scaling-stroke";
+}
+
+.chart_svg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	transform: rotate(-90deg);
+}
+
+.javascript {
+	stroke: #70A9A1;
+	stroke-dasharray: 0 2100;
+}
+
+.css {
+	stroke: #3587A4;
+	stroke-dasharray: 0 2100;
+}
+
+.python {
+	stroke: #9EC1A3;
+	stroke-dasharray: 0 2100;
+}
+
+.java {
+	stroke: #CFE0C3;
+	stroke-dasharray: 0 2100;
+}
+
+.fillJs {
+	animation: fillUpJs 1s ease-out;
+	animation-fill-mode: forwards;
+	animation-delay: 0.3s;
+}
+
+@keyframes fillUpJs {
+	to {
+		stroke-dasharray: 1010 2100;
+	}
+}
+
+.fillUpPython {
+	animation: fillUpPython 1s ease-out;
+	animation-fill-mode: forwards;
+	animation-delay: 0.3s;
+}
+
+@keyframes fillUpPython {
+	to {
+		stroke-dasharray: 650 2300;
+	}
+}
+
+.fillUpJava {
+	animation: fillUpJava 1s ease-out;
+	animation-fill-mode: forwards;
+	animation-delay: 0.3s;
+}
+
+@keyframes fillUpJava {
+	to {
+		stroke-dasharray: 500 2300;
+	}
+}
+
+
+.tags {
+	opacity: 0;
+	font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.fadeIn {
+	animation: fadeIn 0.4s ease-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+
+/* --- End Skills --- */
