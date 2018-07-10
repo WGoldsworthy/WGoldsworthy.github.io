@@ -271,3 +271,138 @@ body {
 	0% {transform: rotate(0deg) translateY(-180px) rotate(0deg);}
 	100% {transform: rotate(330deg) translateY(-180px) rotate(-330deg);}
 }
+
+/* ---- Fly in sections ---- */
+
+.fly_in_section {
+	position: absolute;
+	height: 800px;
+	width: 100%;
+	top: 1000px;
+}
+
+.block1 {
+	display: inline-block;
+	position: relative;
+	height: 500px;
+	width: 20%;
+	left: 4%;
+	top: 30px;
+	background-color: #6cb3e3;
+	border-radius: 3%;
+	visibility: hidden;
+}
+
+.block2 {
+	display: inline-block;
+	position: relative;
+	height: 500px;
+	width: 20%;
+	left: 8%;
+	top: 30px;
+	background-color: #6cb3e3;
+	border-radius: 3%;
+	visibility: hidden;
+}
+
+.block3 {
+	display: inline-block;
+	position: relative;
+	height: 500px;
+	width: 20%;
+	left: 12%;
+	top: 30px;
+	background-color: #6cb3e3;
+	border-radius: 3%;
+	visibility: hidden;
+}
+
+.block4 {
+	display: inline-block;
+	position: relative;
+	height: 500px;
+	width: 20%;
+	left: 16%;
+	top: 30px;
+	background-color: #6cb3e3;
+	border-radius: 3%;
+	visibility: hidden;
+}
+
+.slideUp {
+	visibility: visible;
+	animation: slideUp 0.6s ease-out;
+	animation-fill-mode: forwards;
+}
+
+.slideUp2 {
+	animation: slideUp 0.6s ease-out;
+	animation-fill-mode: forwards;
+	animation-delay: 0.1s;
+}
+
+.slideUp3 {
+	animation: slideUp 0.6s ease-out;
+	animation-fill-mode: forwards;
+	animation-delay: 0.2s;
+}
+
+.slideUp4 {
+	animation: slideUp 0.6s ease-out;
+	animation-fill-mode: forwards;
+	animation-delay: 0.3s;
+}
+
+@keyframes slideUp {
+	0% {visibility: visible; transform: translateY(150%);}
+	100% {visibility: visible; transform: translateY(0%);}
+}
+
+/* ---- End Fly in sections ---- */
+
+/* ---- Animated Icons ---- */
+
+.animated_icons {
+	position: absolute;
+	top: 1700px;
+	height: 400px;
+	width: 98%;
+	border-top: 1px solid grey;
+}
+
+.cash_management {
+	position: relative;
+	top: 40px;
+	left: 10%;
+	height: 100px;
+	width: 100px;
+}
+
+
+/* Image dimensions: w x l
+	38.88 x 50
+*/
+.cash_management_inner {
+	position: relative;
+	height: 50%;
+	top: 25%;
+	left: calc(50% - 19px);
+}
+
+.cash_management_outer {
+	position: absolute;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	animation: cash_management_rotate 2s ease-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes cash_management_rotate {
+	0% {transform: rotate(0deg);}
+	50% {transform: rotate(0deg);}
+	75% {transform: rotate(0deg);}
+	100% {transform: rotate(-360deg);}
+}
+
+/* ---- End Animated Icons ---- */
