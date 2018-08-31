@@ -1,0 +1,135 @@
+
+canvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#p5_loading {
+	background-color: #111112;
+	font-family: 'Comfortaa', cursive;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+.loading {
+	position: absolute;
+	height: 100px;
+	width: 200px;
+	top: calc(50% - 50px);
+	left: calc(50% - 130px);
+	letter-spacing: 10px;
+	font-size: 50px;
+	text-align: center;
+	color: white;
+
+	animation-name: fade_out;
+	animation-delay: 1s;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fade_out {
+	0% {opacity: 1}
+	100% {opacity: 0;}
+}
+
+@keyframes fade_in {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+.center_start {
+	position: absolute;
+	height: 100px;
+	width: 600px;
+	top: calc(50% - 50px);
+	left: calc(50% - 300px);
+	font-size: 50px;
+	font-family: 'Comfortaa', cursive;
+	text-align: center;
+	color: white;
+	opacity: 0;
+	z-index: 2;
+
+	animation-name: fade_in_out;
+	animation-delay: 5s;
+	animation-duration: 6s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fade_in_out {
+	0% {opacity: 0;}
+	50% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+.pause {
+	position: absolute;
+	height: 20px;
+	width: 50px;
+	top: calc(100% - 30px);
+	left: calc(50% - 25px);
+	text-align: center;
+	z-index: 2;
+	font-family: 'Megrim', cursive;
+	color: white;
+	transition: 0.5s;
+	cursor: pointer;
+	opacity: 0;
+
+	animation-name: fade_in;
+	animation-delay: 5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.pause:hover {
+	color: #e8204e;
+	transition: 0.3s;
+	top: calc(100% - 35px);
+}
+
+.play {
+	position: absolute;
+	height: 20px;
+	width: 50px;
+	top: calc(100% - 30px);
+	left: calc(50% - 25px);
+	text-align: center;
+	z-index: 1;
+	font-family: 'Megrim', cursive;
+	color: white;
+	transition: 0.5s;
+	cursor: pointer;
+	opacity: 0;
+}
+
+.play:hover {
+	color: #e8204e;
+	transition: 0.3s;
+	top: calc(100% - 35px);
+}
+
+.particles_slider {
+	position: absolute;
+	height: 20px;
+	width: 50px;
+	top: calc(100% - 30px);
+	left: calc(100% - 60px);
+	z-index: 2;
+
+}
+
+.noise_slider {
+	position: absolute;
+	height: 20px;
+	width: 50px;
+	top: calc(100% - 60px);
+	left: calc(100% - 60px);
+	z-index: 2;
+	
+}
