@@ -49,7 +49,7 @@ $('.selectRight').click(function() {
 
 	var audio = document.getElementById("myAudio");
 	var source = document.getElementById("mp3source");
-	source.src = "../../Visualizer/audio/"+songNames[currentSong];
+	source.src = "../audio/"+songNames[currentSong];
 	audio.load();
 	audio.play();
 
