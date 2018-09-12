@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'aadhunik';
+  src: url('../aadhunik/Aadhunik.ttf');
+}
+
+body
+{
+    font-family: 'aadhunik';
+    margin: 0;
+}
+
+canvas
+{
+    background-color: black;
+}
+
+.controls {
+  position: absolute;
+  z-index: 3;
+  height: 300px;
+  width: 200px;
+  left: calc(100% - 200px);
+  top: calc(50% - 150px);
+  border-radius: 5px;
+}
+
+.controls div {
+  margin-top: 5px;
+  margin-left: 5px
+}
+
+.controls input {
+  display: block;
+}
+
+.colors {
+  cursor: pointer;
+}
+
+.colors:hover {
+  color: red;
+  transition: 0.2s ease-out;
+}
+
+.songSelect {
+  position: absolute;
+  height: 50px;
+  width: 400px;
+  top: calc(100% - 50px);
+  left: calc(50% - 200px);
+}
+
+.songName {
+  position: relative;
+  width: 200px;
+  height: 30px;
+  left: 100px;
+  top: 0px;
+  text-align: center;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.jumpForward {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  margin-top: 15px;
+  text-align: center;
+  left: 274px;
+  cursor: pointer;
+}
+
+.jumpBack {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  margin-top: 15px;
+  text-align: center;
+  left: 66px;
+  cursor: pointer;
+}
+
+.selectLeft {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  left: 30px;
+  margin-top: 15px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.songSelect div:hover {
+  color: red;
+  transition: 0.2s ease-out;
+}
+
+.selectRight {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  left: 340px;
+  top: 0px;
+  margin-top: 15px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+}

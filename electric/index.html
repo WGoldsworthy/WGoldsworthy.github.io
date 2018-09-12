@@ -1,0 +1,49 @@
+<head>
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/index.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  	<canvas id="main" width="300px"   height="300px"> 
+	</canvas>
+	<audio id="myAudio">
+		<!-- <source id="mp3source" src="../../Visualizer/audio/arcadeElectro.mp3" type="audio/mpeg"> -->
+		<source id="mp3source" type="audio/mpeg">
+	</audio>
+
+	<div class="controls">
+		<div class="opacityFill">
+			opacity<input class="opacitySlider" type="range" min="1" max="40" value="10" id="opacity_slider">
+		</div>
+		<div class="samplingInterval">
+			sampling<input class="samplingSlider" type="range" min="1" max="150" value="20" id="sampling_slider">
+		</div>
+		<div class="numParticles">
+			particles<input class="particlesSlider" type="range" min="1" max="150" value="100" id="particles_slider">
+		</div>
+		<div class="lowerDistance">
+			lower distance bound<input class="lowerDistanceSlider" type="range" min="1" max="80" value="30" id="lowerDistance_slider">
+		</div>
+		<div class="higherDistance">
+			higher distance bound<input class="higherDistanceSlider" type="range" min="80" max="400" value="150" id="higherDistance_slider">
+		</div>
+		<div class="noise">
+			noise<input class="noiseSlider" type="range" min="1" max="5" value="1" id="noise_slider">
+		</div>
+		<div class="velocity">
+			velocity<input class="velocitySlider" type="range" min="1" max="10" value="4" id="velocity_slider">
+		</div>
+		<div id="colors" class="colors">
+			Color Change
+		</div>
+	</div>
+	<div class="songSelect">
+		<div class="selectLeft">&lt;</div>
+		<div class="jumpBack">-30secs</div>
+		<div class="songName"></div>
+		<div class="jumpForward">+30secs</div>
+		<div class="selectRight">&gt;</div>
+	</div>
+	<script src="js/songNames.js"></script>
+	<script src="js/audioSetup.js"></script>
+</body>
