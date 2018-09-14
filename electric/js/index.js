@@ -290,14 +290,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
       document.getElementById('lowerDistance_slider').oninput = function(){
 
-        // c.clearRect(0, 0, canvas.width, canvas.height);
+        c.clearRect(0, 0, canvas.width, canvas.height);
         distanceRange[0] = this.value
         particle(numParticles);
       }
 
       document.getElementById('higherDistance_slider').oninput = function(){
 
-        // c.clearRect(0, 0, canvas.width, canvas.height);
+        c.clearRect(0, 0, canvas.width, canvas.height);
         distanceRange[1] = this.value
         particle(numParticles);
       }
