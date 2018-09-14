@@ -65,6 +65,11 @@ window.onload = function()
             '#56351E',
         ],
         [
+            '#F75C03',
+            '#04A777',
+            '#D90368',
+        ],
+        [
             '#9C528B',
             '#1D1E2C',
             '#E534BC',
@@ -309,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       document.getElementById('velocity_slider').oninput = function(){
 
-        // c.clearRect(0, 0, canvas.width, canvas.height);
+        c.clearRect(0, 0, canvas.width, canvas.height);
         velocityNorm = this.value/400
         velocity = velocityNorm
         particle(numParticles);
