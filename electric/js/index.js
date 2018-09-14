@@ -1,4 +1,4 @@
-var opacityFill = 0.01;
+var opacityFill = 0.3;
 var samplingInterval = 12;
 var c;
 var canvas;
@@ -9,7 +9,8 @@ var distanceRange;
 var noise;
 var velocity;
 var colors;
-var colorCycle = 0;
+var colorCycle = 1;
+var backgroundColor = 'black';
 
 var particle;
 
@@ -26,6 +27,13 @@ window.onload = function()
     canvas.width = innerWidth;
     
     canvas.height = innerHeight;
+
+    if (backgroundColor == 'white') {
+        c.fillStyle = 'rgba(255, 255, 255, 1)';
+    } else {
+        c.fillStyle = 'rgba(0,0,0,1)';
+    }
+    c.fillRect(0,0,canvas.width, canvas.height);
     
     // Variables
     
@@ -44,7 +52,6 @@ window.onload = function()
     distanceRange = [1, 120];
     numParticles = 60;
     noise = 1;
-    var backgroundColor = "white";
 
     colors = [
         [
@@ -153,9 +160,13 @@ window.onload = function()
         
         this.draw = function(lastPoint)
         {
-            c.beginPath();    
+            c.beginPath();
+
+            let color = hexToRgbA(this.color);
+
+            color = color.replace("1)", "" + opacityFill + ")");  
             
-            c.strokeStyle = this.color;
+            c.strokeStyle = color;
             
             c.lineWidth = radius;
             
@@ -191,18 +202,6 @@ window.onload = function()
     {
         requestAnimationFrame(animate);
         
-        // c.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // c.fillStyle = 'rgba(255, 255, 255, 0.01)';
-
-        var fillstyle = 'rgba(255, 255, 255, ' + opacityFill + ')';
-
-        // var fillstyle = 'rgba(0, 0, 0, ' + opacityFill + ')';
-
-
-        c.fillStyle = fillstyle;
-        
-        c.fillRect(0, 0, canvas.width, canvas.height);
         var i = 0;
         particles.forEach(particle => 
         {
@@ -219,6 +218,19 @@ window.onload = function()
     
     animate();
 };
+
+var hexToRgbA = function(hex){
+    var c;
+    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+        c= hex.substring(1).split('');
+        if(c.length== 3){
+            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+        }
+        c= '0x'+c.join('');
+        return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';
+    }
+    throw new Error('Bad Hex');
+}
 
 var AudioSource = function() {
     var self = this;
@@ -257,15 +269,9 @@ var AudioSource = function() {
 document.addEventListener("DOMContentLoaded", function() {
     
     document.getElementById('opacity_slider').oninput = function(){
-        // Change value 1-100 into range 0.001-0.2
 
-        c.clearRect(0, 0, canvas.width, canvas.height);
-        opacityFill = this.value / 1000
-        if (this.value <= 1) {
-            $('body').css('color', 'white');
-        } else {
-            $('body').css('color', 'black');
-        }
+        // c.clearRect(0, 0, canvas.width, canvas.height);
+        opacityFill = this.value / 20
     }
 
      document.getElementById('sampling_slider').oninput = function(){
@@ -284,14 +290,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
       document.getElementById('lowerDistance_slider').oninput = function(){
 
-        c.clearRect(0, 0, canvas.width, canvas.height);
+        // c.clearRect(0, 0, canvas.width, canvas.height);
         distanceRange[0] = this.value
         particle(numParticles);
       }
 
       document.getElementById('higherDistance_slider').oninput = function(){
 
-        c.clearRect(0, 0, canvas.width, canvas.height);
+        // c.clearRect(0, 0, canvas.width, canvas.height);
         distanceRange[1] = this.value
         particle(numParticles);
       }
@@ -321,6 +327,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
         particle(numParticles);
       });
+
+      document.getElementById('background').addEventListener("click", function() {
+        if (backgroundColor == 'black') {
+            backgroundColor = 'white';
+            c.fillStyle = 'rgba(255, 255, 255, 1)';
+            c.fillRect(0,0,canvas.width, canvas.height);
+            $('body').css('color', 'black');
+        } else {
+            backgroundColor = 'black';
+            c.fillStyle = 'rgba(0, 0, 0, 1)';
+            c.fillRect(0,0,canvas.width, canvas.height);
+            $('body').css('color', 'white');
+        }
+
+      });
+
+      document.getElementById('clear').addEventListener("click", function(){
+        if(backgroundColor == 'white') {
+            c.fillStyle = 'rgba(255, 255, 255, 1)';
+            c.fillRect(0, 0, canvas.width, canvas.height);
+        } else {
+            c.fillStyle = 'rgba(0,0,0,1)';
+            c.fillRect(0, 0, canvas.width, canvas.height);
+        }
+      });
+
 
   });
 

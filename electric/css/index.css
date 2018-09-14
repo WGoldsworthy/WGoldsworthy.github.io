@@ -7,6 +7,7 @@ body
 {
     font-family: 'aadhunik';
     margin: 0;
+    color: white;
 }
 
 canvas
@@ -37,7 +38,25 @@ canvas
   cursor: pointer;
 }
 
+.background {
+  cursor: pointer;
+}
+
+.clear {
+  cursor: pointer;
+}
+
 .colors:hover {
+  color: red;
+  transition: 0.2s ease-out;
+}
+
+.background:hover {
+  color: red;
+  transition: 0.2s ease-out;
+}
+
+.clear:hover {
   color: red;
   transition: 0.2s ease-out;
 }
