@@ -11,7 +11,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	var audio = document.getElementById("myAudio");
 	var source = document.getElementById("mp3source");
+	
 	source.src = "../audio/"+songNames[currentSong];
+	// source.src = "https://wgoldsworthy.github.io/audio/" + songNames[currentSong];
+	audio.crossOrigin = "anonymous";
 	audio.load();
 	audio.play();
 
@@ -85,7 +88,7 @@ $('.songName').hover(function(){
 $('.songName').click(function(){
 	if (playing) {
 		playing = false;
-		audio.pause();
+		audio.play();
 	} else {
 		playing = true;
 		audio.play();

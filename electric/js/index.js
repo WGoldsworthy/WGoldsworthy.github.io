@@ -268,7 +268,7 @@ var AudioSource = function() {
             self.volume = total;
       };
       sample = setInterval(this.sampleAudioStream, samplingInterval);
-      audio.play();
+      // audio.play();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
