@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	// source.src = "https://wgoldsworthy.github.io/audio/" + songNames[currentSong];
 	audio.crossOrigin = "anonymous";
 	audio.load();
-	audio.play();
+	// audio.play();
 
 	$('.songName').text(stripMp3(songNames[currentSong]));
 });

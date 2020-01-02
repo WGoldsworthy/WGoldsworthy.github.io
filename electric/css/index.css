@@ -102,6 +102,22 @@ canvas
   cursor: pointer;
 }
 
+.startPanel {
+  position: fixed;
+  height: 200px;
+  width: 200px;
+  top: calc( 50% - 100px );
+  left: calc( 50vw - 100px );
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+}
+
+.startPanel div {
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
 .selectLeft {
   position: absolute;
   height: 30px;
