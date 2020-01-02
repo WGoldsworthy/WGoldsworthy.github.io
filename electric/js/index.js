@@ -11,224 +11,9 @@ var velocity;
 var colors;
 var colorCycle = 1;
 var backgroundColor = 'black';
+var drawPaths = false;
 
 var particle;
-
-
-
-
-// window.onload = function()
-// {
-//     // Initital Setup
-//     $('.songName').click(function() {
-//         audiosource = new AudioSource();
-//     });
-
-//     audiosource = new AudioSource();
-    
-//     canvas = document.querySelector('canvas');
-    
-//     c = canvas.getContext('2d');
-    
-//     canvas.width = innerWidth;
-    
-//     canvas.height = innerHeight;
-
-//     if (backgroundColor == 'white') {
-//         c.fillStyle = 'rgba(255, 255, 255, 1)';
-//     } else {
-//         c.fillStyle = 'rgba(0,0,0,1)';
-//     }
-//     c.fillRect(0,0,canvas.width, canvas.height);
-    
-//     // Variables
-    
-//     var mouse = 
-//     {
-//         x: innerWidth / 2,
-        
-//         y: innerHeight / 2
-//     };
-
-    
-//     samplingInterval = 12;
-//     var distanceOffset = 1.5;
-//     velocity = 0.01;
-//     var multiDirection = true;
-//     distanceRange = [1, 120];
-//     numParticles = 60;
-//     noise = 1;
-
-//     colors = [
-//         [
-//             '#ED3312',
-//             '#0E1428',
-//             '#7B9E89',
-//         ],
-//         [
-//             '#2660A4',
-//             '#F19953',
-//             '#56351E',
-//         ],
-//         [
-//             '#F75C03',
-//             '#04A777',
-//             '#D90368',
-//         ],
-//         [
-//             '#9C528B',
-//             '#1D1E2C',
-//             '#E534BC',
-//         ],
-//         [
-//             '#323031',
-//             '#FFC857',
-//             '#DB3A34'
-//         ],
-//         [
-//             '#4CA526',
-//             '#3C787E',
-//             '#FF7F11',
-//         ]
-//     ]
-    
-    
-//     addEventListener('resize', function()
-//     {
-//         canvas.width = innerWidth;
-        
-//         canvas.height = innerHeight;
-        
-//         particle(numParticles);
-//     });
-    
-//     // Utility Functions
-    
-//     function randomIntFromRange(min, max)
-//     {
-//         return Math.floor(Math.random() * (max - min + 1) + min);
-//     }
-    
-//     function randomColor(colors)
-//     {
-//         return colors[Math.floor(Math.random() * colors.length)];
-//     }
-    
-//     // Objects
-    
-//     function Particle(x, y, radius, color)
-//     {
-//         this.x = x;
-        
-//         this.y = y;
-        
-//         this.radius = radius;
-        
-//         this.color = color;
-        
-//         this.radians = Math.random() * Math.PI * 2;
-        
-//         var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-        
-//         // this.velocity = 0.05;
-//         this.velocity = Math.random() * velocity * plusOrMinus;
-        
-//         this.updateVelocity = function() {
-//             this.velocity = Math.random() * velocity * plusOrMinus;
-//         }
-
-//         this.initialDistance = randomIntFromRange(distanceRange[0], distanceRange[1]);
-        
-//         this.lastMouse = {x: x, y: y};
-        
-//         this.update = function(num)
-//         {
-//             const lastPoint = {x: this.x, y: this.y}; // Taking the last point before we re-draw.
-            
-
-//             var dist = Array.prototype.slice.call(audiosource.streamData)[num];
-
-//             this.distanceFromCenter = this.initialDistance + (dist/noise);
-
-//             //Move points over time
-            
-//             this.radians += this.velocity;
-            
-//             // Drag Effect
-            
-//             this.lastMouse.x += (mouse.x - this.lastMouse.x) * 0.05;
-            
-//             this.lastMouse.y += (mouse.y - this.lastMouse.y) * 0.05;
-            
-//             // Circular Motion
-            
-//             this.x = this.lastMouse.x + Math.cos(this.radians) * this.distanceFromCenter;
-            
-//             this.y = this.lastMouse.y + Math.sin(this.radians) * this.distanceFromCenter;
-            
-//             this.draw(lastPoint);
-//         };
-        
-//         this.draw = function(lastPoint)
-//         {
-//             c.beginPath();
-
-//             let color = hexToRgbA(this.color);
-
-//             color = color.replace("1)", "" + opacityFill + ")");  
-            
-//             c.strokeStyle = color;
-            
-//             c.lineWidth = radius;
-            
-//             c.moveTo(lastPoint.x, lastPoint.y);
-            
-//             c.lineTo(this.x, this.y);
-            
-//             c.stroke();
-            
-//             c.closePath();
-//         };
-//     }
-    
-//     // Implementation
-    
-//     let particles;
-    
-//     particle = function init(numParticles)
-//     {
-//         particles = [];
-        
-//         for(let i = 0; i < numParticles; i++)
-//         {
-//             const radius = (Math.random() * 2) + 1;
-            
-//             particles.push(new Particle(canvas.width / 2, canvas.height / 2, 1, randomColor(colors[colorCycle])));
-//         }
-//     }
-    
-//     // Animation Loop
-    
-//     function animate()
-//     {
-//         requestAnimationFrame(animate);
-        
-//         var i = 0;
-//         particles.forEach(particle => 
-//         {
-//             particle.update(i);
-//             i++;
-//         });
-//     }
-    
-//     // Object calls
-    
-//     // Function calls
-    
-//     particle(numParticles);
-    
-//     animate();
-// };
 
 var hexToRgbA = function(hex){
     var c;
@@ -326,6 +111,10 @@ document.addEventListener("DOMContentLoaded", function() {
         particle(numParticles);
       }
 
+      document.getElementById('drawPath').addEventListener("click", function() {
+        drawPaths = !drawPaths;
+      })
+
       document.getElementById('colors').addEventListener("click", function() {
 
         colorCycle += 1;
@@ -365,220 +154,224 @@ document.addEventListener("DOMContentLoaded", function() {
       });
 
       document.getElementsByClassName('songName')[0].addEventListener("click", function()
-{
-    // Initital Setup
-    // $('.songName').click(function() {
-    //     audiosource = new AudioSource();
-    // });
+        {
 
-    if (!audiosource) { 
-        audiosource = new AudioSource();
-    }
-    
-    canvas = document.querySelector('canvas');
-    
-    c = canvas.getContext('2d');
-    
-    canvas.width = innerWidth;
-    
-    canvas.height = innerHeight;
-
-    if (backgroundColor == 'white') {
-        c.fillStyle = 'rgba(255, 255, 255, 1)';
-    } else {
-        c.fillStyle = 'rgba(0,0,0,1)';
-    }
-    c.fillRect(0,0,canvas.width, canvas.height);
-    
-    // Variables
-    
-    var mouse = 
-    {
-        x: innerWidth / 2,
+        if (!audiosource) { 
+            audiosource = new AudioSource();
+        }
         
-        y: innerHeight / 2
-    };
-
-    
-    samplingInterval = 12;
-    var distanceOffset = 1.5;
-    velocity = 0.01;
-    var multiDirection = true;
-    distanceRange = [1, 120];
-    numParticles = 60;
-    noise = 1;
-
-    colors = [
-        [
-            '#ED3312',
-            '#0E1428',
-            '#7B9E89',
-        ],
-        [
-            '#2660A4',
-            '#F19953',
-            '#56351E',
-        ],
-        [
-            '#F75C03',
-            '#04A777',
-            '#D90368',
-        ],
-        [
-            '#9C528B',
-            '#1D1E2C',
-            '#E534BC',
-        ],
-        [
-            '#323031',
-            '#FFC857',
-            '#DB3A34'
-        ],
-        [
-            '#4CA526',
-            '#3C787E',
-            '#FF7F11',
-        ]
-    ]
-    
-    
-    addEventListener('resize', function()
-    {
+        canvas = document.querySelector('canvas');
+        
+        c = canvas.getContext('2d');
+        
         canvas.width = innerWidth;
         
         canvas.height = innerHeight;
+
+        if (backgroundColor == 'white') {
+            c.fillStyle = 'rgba(255, 255, 255, 1)';
+        } else {
+            c.fillStyle = 'rgba(0,0,0,1)';
+        }
+        c.fillRect(0,0,canvas.width, canvas.height);
+        
+        // Variables
+        
+        var mouse = 
+        {
+            x: innerWidth / 2,
+            
+            y: innerHeight / 2
+        };
+
+        
+        samplingInterval = 12;
+        var distanceOffset = 1.5;
+        velocity = 0.01;
+        var multiDirection = true;
+        distanceRange = [1, 120];
+        numParticles = 60;
+        noise = 1;
+
+        colors = [
+            [
+                '#ED3312',
+                '#0E1428',
+                '#7B9E89',
+            ],
+            [
+                '#2660A4',
+                '#F19953',
+                '#56351E',
+            ],
+            [
+                '#F75C03',
+                '#04A777',
+                '#D90368',
+            ],
+            [
+                '#9C528B',
+                '#1D1E2C',
+                '#E534BC',
+            ],
+            [
+                '#323031',
+                '#FFC857',
+                '#DB3A34'
+            ],
+            [
+                '#4CA526',
+                '#3C787E',
+                '#FF7F11',
+            ]
+        ]
+        
+        
+        addEventListener('resize', function()
+        {
+            canvas.width = innerWidth;
+            
+            canvas.height = innerHeight;
+            
+            particle(numParticles);
+        });
+        
+        // Utility Functions
+        
+        function randomIntFromRange(min, max)
+        {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        
+        function randomColor(colors)
+        {
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        // Objects
+        
+        function Particle(x, y, radius, color)
+        {
+            this.x = x;
+            
+            this.y = y;
+            
+            this.radius = radius;
+            
+            this.color = color;
+            
+            this.radians = Math.random() * Math.PI * 2;
+            
+            var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+            
+            // this.velocity = 0.05;
+            this.velocity = Math.random() * velocity * plusOrMinus;
+            
+            this.updateVelocity = function() {
+                this.velocity = Math.random() * velocity * plusOrMinus;
+            }
+
+            this.initialDistance = randomIntFromRange(distanceRange[0], distanceRange[1]);
+            
+            this.lastMouse = {x: x, y: y};
+            
+            this.update = function(num)
+            {
+                const lastPoint = {x: this.x, y: this.y}; // Taking the last point before we re-draw.
+                
+
+                var dist = Array.prototype.slice.call(audiosource.streamData)[num];
+
+                this.distanceFromCenter = this.initialDistance + (dist/noise);
+
+                //Move points over time
+                
+                this.radians += this.velocity;
+                
+                // Drag Effect
+                
+                this.lastMouse.x += (mouse.x - this.lastMouse.x) * 0.05;
+                
+                this.lastMouse.y += (mouse.y - this.lastMouse.y) * 0.05;
+                
+                // Circular Motion
+                
+                this.x = this.lastMouse.x + Math.cos(this.radians) * this.distanceFromCenter;
+                
+                this.y = this.lastMouse.y + Math.sin(this.radians) * this.distanceFromCenter;
+                
+                this.draw(lastPoint);
+            };
+            
+            this.draw = function(lastPoint)
+            {
+                c.beginPath();
+
+                let color = hexToRgbA(this.color);
+
+                color = color.replace("1)", "" + opacityFill + ")");  
+                
+                c.strokeStyle = color;
+                
+                c.lineWidth = radius;
+                
+                c.moveTo(lastPoint.x, lastPoint.y);
+                
+                c.lineTo(this.x, this.y);
+                
+                c.stroke();
+                
+                c.closePath();
+            };
+        }
+        
+        // Implementation
+        
+        let particles;
+        
+        particle = function init(numParticles)
+        {
+            particles = [];
+            
+            for(let i = 0; i < numParticles; i++)
+            {
+                const radius = (Math.random() * 2) + 1;
+                
+                particles.push(new Particle(canvas.width / 2, canvas.height / 2, 1, randomColor(colors[colorCycle])));
+            }
+        }
+        
+        // Animation Loop
+        
+        function animate()
+        {
+            requestAnimationFrame(animate);
+            
+            var i = 0;
+            particles.forEach(particle => 
+            {
+                particle.update(i);
+                i++;
+            });
+
+            if (drawPaths) {
+                if (backgroundColor == 'white') {
+                    c.fillStyle = 'rgba(255, 255, 255, 1)';
+                } else {
+                    c.fillStyle = 'rgba(0, 0, 0, 0.02)';
+                }
+                c.fillRect(0,0,canvas.width, canvas.height);
+            }
+        }
+        
+        // Object calls
+        
+        // Function calls
         
         particle(numParticles);
+        
+        animate();
     });
-    
-    // Utility Functions
-    
-    function randomIntFromRange(min, max)
-    {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-    
-    function randomColor(colors)
-    {
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
-    
-    // Objects
-    
-    function Particle(x, y, radius, color)
-    {
-        this.x = x;
-        
-        this.y = y;
-        
-        this.radius = radius;
-        
-        this.color = color;
-        
-        this.radians = Math.random() * Math.PI * 2;
-        
-        var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-        
-        // this.velocity = 0.05;
-        this.velocity = Math.random() * velocity * plusOrMinus;
-        
-        this.updateVelocity = function() {
-            this.velocity = Math.random() * velocity * plusOrMinus;
-        }
 
-        this.initialDistance = randomIntFromRange(distanceRange[0], distanceRange[1]);
-        
-        this.lastMouse = {x: x, y: y};
-        
-        this.update = function(num)
-        {
-            const lastPoint = {x: this.x, y: this.y}; // Taking the last point before we re-draw.
-            
-
-            var dist = Array.prototype.slice.call(audiosource.streamData)[num];
-
-            this.distanceFromCenter = this.initialDistance + (dist/noise);
-
-            //Move points over time
-            
-            this.radians += this.velocity;
-            
-            // Drag Effect
-            
-            this.lastMouse.x += (mouse.x - this.lastMouse.x) * 0.05;
-            
-            this.lastMouse.y += (mouse.y - this.lastMouse.y) * 0.05;
-            
-            // Circular Motion
-            
-            this.x = this.lastMouse.x + Math.cos(this.radians) * this.distanceFromCenter;
-            
-            this.y = this.lastMouse.y + Math.sin(this.radians) * this.distanceFromCenter;
-            
-            this.draw(lastPoint);
-        };
-        
-        this.draw = function(lastPoint)
-        {
-            c.beginPath();
-
-            let color = hexToRgbA(this.color);
-
-            color = color.replace("1)", "" + opacityFill + ")");  
-            
-            c.strokeStyle = color;
-            
-            c.lineWidth = radius;
-            
-            c.moveTo(lastPoint.x, lastPoint.y);
-            
-            c.lineTo(this.x, this.y);
-            
-            c.stroke();
-            
-            c.closePath();
-        };
-    }
-    
-    // Implementation
-    
-    let particles;
-    
-    particle = function init(numParticles)
-    {
-        particles = [];
-        
-        for(let i = 0; i < numParticles; i++)
-        {
-            const radius = (Math.random() * 2) + 1;
-            
-            particles.push(new Particle(canvas.width / 2, canvas.height / 2, 1, randomColor(colors[colorCycle])));
-        }
-    }
-    
-    // Animation Loop
-    
-    function animate()
-    {
-        requestAnimationFrame(animate);
-        
-        var i = 0;
-        particles.forEach(particle => 
-        {
-            particle.update(i);
-            i++;
-        });
-    }
-    
-    // Object calls
-    
-    // Function calls
-    
-    particle(numParticles);
-    
-    animate();
 });
-
-
-  });
 

@@ -114,6 +114,15 @@ canvas
   color: black;
 }
 
+.drawPath {
+  cursor: pointer;
+}
+
+.drawPath:hover {
+  color: red;
+  transition: 0.2s ease-out;
+}
+
 .startPanel div {
   border: 1px solid grey;
   cursor: pointer;
