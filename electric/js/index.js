@@ -356,7 +356,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (drawPaths) {
                 if (backgroundColor == 'white') {
-                    c.fillStyle = 'rgba(255, 255, 255, 1)';
+                    c.fillStyle = 'rgba(255, 255, 255, 0.02)';
                 } else {
                     c.fillStyle = 'rgba(0, 0, 0, 0.02)';
                 }
